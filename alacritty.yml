@@ -1,9 +1,17 @@
 font:
+  normal:
+    family: MesloLGM Nerd Font
+    style: Regular
+
   bold:
-    family: FiraCode Nerd Font
+    family: MesloLGM Nerd Font
     style: Bold
 
-  size: 13
+  italic:
+    family: MesloLGM Nerd Font
+    style: Italic
+
+  size: 9
 
 window:
   padding:

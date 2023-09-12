@@ -27,21 +27,19 @@ keys = [
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
     Key(
-        [mod, "shift"],
-        "Return",
-        lazy.layout.toggle_split(),
+        [mod, "shift"],"Return", lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "s",lazy.spawn("gnome-screenshot -a")),
-
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    Key([mod], "F9", lazy.widget['volume'].decrease_vol()),
-    Key([mod], "F10", lazy.widget['volume'].increase_vol()),
+    Key([mod], "F4", lazy.spawn('light -U 10')),
+    Key([mod], "F5", lazy.spawn('light -A 10')),
+    Key([mod], "f", lazy.window.toggle_floating()),
+    Key([mod], 's', lazy.spawn('shutdown now')),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -66,7 +64,7 @@ for i in groups:
     )
 
 widget_defaults = dict(
-        font = "FiraCode Nerd Font Bold",
+        font = "MesloLGM Nerd Font Bold",
         fontsize = 11,
         padding = 8,)
 
@@ -88,7 +86,7 @@ layouts = [
 
 #colors = ["1e2120","262b2a","303635","3a403f","262b2a",'5f6763',"525a57",'989b97','adafac','cbcdcb']
 #colors = ["006764","008BA8", "52A1A5", "008BA8", "30DEAB", "013A55", "013A35", "002C39", "000B27", "76424F","502833", "A26E00"]
-colors = ['607E62','07130F','071616','1A3B2C','71835B','A5AF87','030706','050B0E','05110D','040807','05110D','020705']
+colors = ['607E62','07130F','071616','1A3B2C','28422B','A5AF87','021216','050B0E','05211D','040807','05110D','020705']
 
 black = '020605'
 white = colors[5]
@@ -132,7 +130,7 @@ screens = [
                     format = '{weather_details}',
                     update_interval = 1,
                     background = colors[0],
-                    foreground = white,
+                    foreground = colors[2],
                     **powerline
                     ),
 
@@ -165,7 +163,37 @@ screens = [
 
                widget.Volume(
                       foreground = white,
-                      background = colors[0]
+                      background = colors[4],
+                      **powerline,
+                       ),
+               widget.PulseVolume(
+                       foreground = white,
+                       background = colors[4],
+                       **powerline,
+                       ),
+               widget.Backlight(
+                      foreground = white,
+                      background = colors[8],
+                      backlight_name = 'amdgpu_bl1',
+                      brightness_file = '/sys/class/backlight/amdgpu_bl1/brightness',
+                      change_command = 'light -S {0}',
+                      **powerline,
+                       ),
+               widget.Battery(
+                      foreground = white, 
+                      background = colors[2],
+                      charge_char = 'C',
+                      discharge_char = 'D',
+                      empty_char = 'Z',
+                      full_char = 'F',
+                      format = '{char}:{percent:2.0%}',
+                      **powerline,
+                       ),
+               widget.Wlan(
+                       background = white,
+                       foreground = colors[6],
+                       disconnected_message = "Idle",
+                       format = '{essid}:{quality}/70'
                        ),
             ],
             24,
