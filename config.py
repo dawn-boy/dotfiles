@@ -39,7 +39,8 @@ keys = [
     Key([mod], "F4", lazy.spawn('light -U 10')),
     Key([mod], "F5", lazy.spawn('light -A 10')),
     Key([mod], "f", lazy.window.toggle_floating()),
-    Key([mod], 's', lazy.spawn('shutdown now')),
+    Key([mod], "F2", lazy.spawn('pactl -- set-sink-volume 0 -10%')),
+    Key([mod], 'F3', lazy.spawn('pactl -- set-sink-volume 0 +10%')),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -160,12 +161,6 @@ screens = [
                        background = colors[6],
                        **powerline
                        ),
-
-               widget.Volume(
-                      foreground = white,
-                      background = colors[4],
-                      **powerline,
-                       ),
                widget.PulseVolume(
                        foreground = white,
                        background = colors[4],
@@ -186,7 +181,7 @@ screens = [
                       discharge_char = 'D',
                       empty_char = 'Z',
                       full_char = 'F',
-                      format = '{char}:{percent:2.0%}',
+                      format = '{char}:{percent:2.0%}  {hour:d}:{min:02d} hrs left',
                       **powerline,
                        ),
                widget.Wlan(
