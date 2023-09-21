@@ -1,3 +1,5 @@
+global colors
+colors = ['110f11', '09151f', '23222f', '3d2732', '2c334c', '363e50', '39425d', '424d62', '4d5062', '725857', '5b646a', '56617d', 'a58c77', '8a949b', '748cbe']
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
@@ -87,11 +89,10 @@ layouts = [
 
 #colors = ["1e2120","262b2a","303635","3a403f","262b2a",'5f6763',"525a57",'989b97','adafac','cbcdcb']
 #colors = ["006764","008BA8", "52A1A5", "008BA8", "30DEAB", "013A55", "013A35", "002C39", "000B27", "76424F","502833", "A26E00"]
-colors = ['607E62','07130F','071616','1A3B2C','28422B','A5AF87','021216','050B0E','05211D','040807','05110D','020705']
+#colors = ['607E62','07130F','071616','1A3B2C','28422B','A5AF87','021216','050B0E','05211D','040807','05110D','020705']
 
-black = '020605'
-white = colors[5]
-backgroundColor = '0D241A'
+dark = colors[0]
+light = colors[-1]
 
 powerline = {"decorations": [PowerLineDecoration(path='arrow_right')]}
 powerlineLeft = {"decorations": [PowerLineDecoration(path='arrow_left')]}
@@ -103,23 +104,23 @@ screens = [
                 widget.Clock(
                     format = '%I:%M %d/%m/%y',
                     fontsize = 14,
-                    foreground = colors[5],
-                    background= colors[3], 
+                    foreground = light,
+                    background= colors[1], 
                     **powerlineLeft
                     ),
 
                 widget.GroupBox(
                     highlight_method = 'line',
-                    highlight_color = colors[8],
-                    background = colors[7],
-                    active = colors[5],
+                    highlight_color = colors[2],
+                    background = colors[2],
+                    active = light,
                     **powerlineLeft,
                     fontsize = 14
                     ),
 
                 widget.Prompt(
-                    foreground = backgroundColor,
-                    background = colors[5],
+                    foreground = light,
+                    background = colors[3],
                     cursor = False,
                     **powerlineLeft
                     ),
@@ -130,53 +131,53 @@ screens = [
                     location = "Coimbatore",
                     format = '{weather_details}',
                     update_interval = 1,
-                    background = colors[0],
-                    foreground = colors[2],
+                    background = colors[-1],
+                    foreground = dark,
                     **powerline
                     ),
 
                widget.CurrentLayout(
-                    foreground = white,
-                    background = colors[4],
+                    foreground = dark,
+                    background = colors[-2],
                     **powerline
                     ),
  
                widget.CPU(
                        format = '{load_percent}%',
-                       foreground = white,
-                       background = colors[3],
+                       foreground = dark,
+                       background = colors[-3],
                        **powerline
                        ),
 
                widget.Memory(
                        format = '{MemUsed: .0f}{mm}',
-                       background = colors[8],
-                       foreground = white,
+                       background = colors[-4],
+                       foreground = dark,
                        **powerline
                        ),
  
                widget.Net(
                        format = '{down} ↓↑ {up}',
-                       foreground = white,
-                       background = colors[6],
+                       foreground = dark,
+                       background = colors[-5],
                        **powerline
                        ),
                widget.PulseVolume(
-                       foreground = white,
-                       background = colors[4],
+                       foreground = dark,
+                       background = colors[-6],
                        **powerline,
                        ),
                widget.Backlight(
-                      foreground = white,
-                      background = colors[8],
+                      foreground = dark,
+                      background = colors[-7],
                       backlight_name = 'amdgpu_bl1',
                       brightness_file = '/sys/class/backlight/amdgpu_bl1/brightness',
                       change_command = 'light -S {0}',
                       **powerline,
                        ),
                widget.Battery(
-                      foreground = white, 
-                      background = colors[2],
+                      foreground = dark, 
+                      background = colors[-8],
                       charge_char = 'C',
                       discharge_char = 'D',
                       empty_char = 'Z',
@@ -185,14 +186,14 @@ screens = [
                       **powerline,
                        ),
                widget.Wlan(
-                       background = white,
-                       foreground = colors[6],
+                       background = colors[-9],
+                       foreground = light,
                        disconnected_message = "Idle",
                        format = '{essid}:{quality}/70'
                        ),
             ],
             24,
-            background = backgroundColor,
+            background = dark,
             margin = 5,
         ),
     ),
