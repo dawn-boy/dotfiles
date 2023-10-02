@@ -1,5 +1,6 @@
-global colors
-colors = ['110f11', '09151f', '23222f', '3d2732', '2c334c', '363e50', '39425d', '424d62', '4d5062', '725857', '5b646a', '56617d', 'a58c77', '8a949b', '748cbe']
+global bgColors, fgColors
+bgColors = ['111116', '2a3640', '454c58', '3f5166', '4b6274', '5c6c7a', '577087', '67869a', '809ca9', '7f9eb5', '94aca4', '9bb6c5', 'b4bcbc', 'e0f2ef']
+fgColors = ['e0f2ef', 'e0f2ef', 'e0f2ef', 'e0f2ef', 'e0f2ef', 'e0f2ef', 'e0f2ef', '111116', '111116', '111116', '111116', '111116', '111116', '111116']
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
@@ -87,12 +88,12 @@ layouts = [
     layout.Tile(**args),
 ]
 
-#colors = ["1e2120","262b2a","303635","3a403f","262b2a",'5f6763',"525a57",'989b97','adafac','cbcdcb']
-#colors = ["006764","008BA8", "52A1A5", "008BA8", "30DEAB", "013A55", "013A35", "002C39", "000B27", "76424F","502833", "A26E00"]
-#colors = ['607E62','07130F','071616','1A3B2C','28422B','A5AF87','021216','050B0E','05211D','040807','05110D','020705']
+#bgColors = ["1e2120","262b2a","303635","3a403f","262b2a",'5f6763',"525a57",'989b97','adafac','cbcdcb']
+#bgColors = ["006764","008BA8", "52A1A5", "008BA8", "30DEAB", "013A55", "013A35", "002C39", "000B27", "76424F","502833", "A26E00"]
+#bgColors = ['607E62','07130F','071616','1A3B2C','28422B','A5AF87','021216','050B0E','05211D','040807','05110D','020705']
 
-dark = colors[0]
-light = colors[-1]
+dark = bgColors[0]
+light = bgColors[-1]
 
 powerline = {"decorations": [PowerLineDecoration(path='arrow_right')]}
 powerlineLeft = {"decorations": [PowerLineDecoration(path='arrow_left')]}
@@ -104,23 +105,23 @@ screens = [
                 widget.Clock(
                     format = '%I:%M %d/%m/%y',
                     fontsize = 14,
-                    foreground = light,
-                    background= colors[1], 
+                    foreground = fgColors[1],
+                    background= bgColors[1], 
                     **powerlineLeft
                     ),
 
                 widget.GroupBox(
                     highlight_method = 'line',
-                    highlight_color = colors[2],
-                    background = colors[2],
-                    active = light,
+                    highlight_color = bgColors[2],
+                    background = bgColors[2],
+                    active = fgColors[2],
                     **powerlineLeft,
                     fontsize = 14
                     ),
 
                 widget.Prompt(
-                    foreground = light,
-                    background = colors[3],
+                    foreground = fgColors[3],
+                    background = bgColors[3],
                     cursor = False,
                     **powerlineLeft
                     ),
@@ -130,54 +131,54 @@ screens = [
                 widget.OpenWeather(
                     location = "Coimbatore",
                     format = '{weather_details}',
-                    update_interval = 1,
-                    background = colors[-1],
-                    foreground = dark,
+                    update_interval = 10,
+                    background = bgColors[-1],
+                    foreground = fgColors[-1],
                     **powerline
                     ),
 
                widget.CurrentLayout(
-                    foreground = dark,
-                    background = colors[-2],
+                    foreground = fgColors[-2],
+                    background = bgColors[-2],
                     **powerline
                     ),
  
                widget.CPU(
                        format = '{load_percent}%',
-                       foreground = dark,
-                       background = colors[-3],
+                       foreground = fgColors[-3],
+                       background = bgColors[-3],
                        **powerline
                        ),
 
                widget.Memory(
                        format = '{MemUsed: .0f}{mm}',
-                       background = colors[-4],
-                       foreground = dark,
+                       background = bgColors[-4],
+                       foreground = fgColors[-4],
                        **powerline
                        ),
  
                widget.Net(
                        format = '{down} ↓↑ {up}',
-                       foreground = dark,
-                       background = colors[-5],
+                       foreground = fgColors[-5],
+                       background = bgColors[-5],
                        **powerline
                        ),
                widget.PulseVolume(
-                       foreground = dark,
-                       background = colors[-6],
+                       foreground = fgColors[-6],
+                       background = bgColors[-6],
                        **powerline,
                        ),
                widget.Backlight(
-                      foreground = dark,
-                      background = colors[-7],
+                      foreground = fgColors[-7],
+                      background = bgColors[-7],
                       backlight_name = 'amdgpu_bl1',
                       brightness_file = '/sys/class/backlight/amdgpu_bl1/brightness',
                       change_command = 'light -S {0}',
                       **powerline,
                        ),
                widget.Battery(
-                      foreground = dark, 
-                      background = colors[-8],
+                      foreground = fgColors[-8], 
+                      background = bgColors[-8],
                       charge_char = 'C',
                       discharge_char = 'D',
                       empty_char = 'Z',
@@ -186,8 +187,8 @@ screens = [
                       **powerline,
                        ),
                widget.Wlan(
-                       background = colors[-9],
-                       foreground = light,
+                       background = bgColors[-9],
+                       foreground = fgColors[-9],
                        disconnected_message = "Idle",
                        format = '{essid}:{quality}/70'
                        ),
