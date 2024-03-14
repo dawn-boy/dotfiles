@@ -1,0 +1,3 @@
+fish shell
+bash <(curl -s "https://end-4.github.io/dots-hyprland-wiki/setup.sh")
+git clone https://github.com/datguypiko/Firefox-Mod-Blur.git .
