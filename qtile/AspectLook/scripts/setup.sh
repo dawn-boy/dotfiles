@@ -7,8 +7,8 @@ init(){
 		choice=""
 		read choice
 
-		echo "----- BEGIN EXECUTION -----" >> log
-		echo "[var] choice: $choice " >> log
+		echo "----- BEGIN EXECUTION -----"
+		echo "[var] choice: $choice " 
 
 		if [ "$choice" != "yes" ];
 		then
