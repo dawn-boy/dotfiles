@@ -1,0 +1,4 @@
+qtile/AspectLook/config/fish/fish_variables
+qtile/AspectLook/config/qtile/__pycache__/
+qtile/AspectLook/config/polybar/cuts/colors.ini
+qtile/AspectLook/config/polybar/cuts/scripts/rofi/colors.rasi

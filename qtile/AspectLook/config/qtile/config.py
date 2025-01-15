@@ -36,6 +36,8 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawn('bash /home/Dew/.config/polybar/cuts/scripts/launcher.sh'), desc="Spawn a command using a prompt widget"),
+    Key([mod], "z", lazy.spawn('zenmode'), desc="toggles polybar"),
+    Key([mod], "p", lazy.spawn('chwl &'), desc="changes wall"),
     Key([mod],"F4", lazy.spawn('light -U 10')),
     Key([mod],"F5", lazy.spawn('light -A 10')),
     Key([mod], "f", lazy.spawn('firefox')),
