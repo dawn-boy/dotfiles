@@ -1,5 +1,3 @@
-set -e
-
 # yay -S polybar
 
 init(){
@@ -16,19 +14,13 @@ init(){
 		then
 				exit 1;
 		fi
-
-		mkdir $HOME/.ithub
-		mkdir $HOME/.ithub/dotfiles
-		git clone https://github.com/dawn-boy/dotfiles.git $HOME/.ithub/dotfiles
 }
 
 
 echo "Initialising... Please wait."
-#init 
-mkdir $HOME/config
-path=
+init 
 for link in $(ls ../config/);
 do
-		ln -s ~/.ithub/dotfiles/qtile/AspectLook/config/$link $HOME/config/
+		ln -s ~/.github/dotfiles/qtile/AspectLook/config/$link $HOME/.config/
 done
 
