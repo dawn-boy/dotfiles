@@ -1,7 +1,0 @@
-install python-pywal for color customizations
-
-git clone https://github.com/adi1090x/polybar-themes
-bash .config/polybar/launch.sh --cuts
-
-yay -S pipwire-pulse
-

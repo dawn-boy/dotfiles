@@ -1,0 +1,21 @@
+git clone https://github.com/adi1090x/polybar-themes
+bash .config/polybar/launch.sh --cuts
+
+yay -S pipwire-pulse
+
+#fish
+install fish shell
+install fortune and Dew's cookies script
+install starship
+install pywal (python-pywal for color customizations)
+clone custom commands from Dew's cmds repo
+
+#kitty
+required fish shell
+install FantasqueSansM Nerd font
+
+#nvim
+fill in next time... lazy
+
+#qtile
+install firefox obsidian flameshot-gui pactl light 
