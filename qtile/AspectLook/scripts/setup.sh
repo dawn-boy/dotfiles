@@ -24,3 +24,6 @@ do
 		ln -s ~/.github/dotfiles/qtile/AspectLook/config/$link $HOME/.config/
 done
 
+echo "Setting up walls"
+ln -s ~/.github/walls ~/Pictures/. 
+
